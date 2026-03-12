@@ -1,0 +1,94 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace calkul
+{
+    public partial class Form2 : Form
+    {
+        public Form2()
+        {
+            InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            calkul(Operation.sum);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            calkul(Operation.min);
+        
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            calkul(Operation.ymn);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            calkul(Operation.del);
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = "";
+            textBox2.Text = "";
+        }
+
+        private void calkul(Operation operation)
+        {
+            if (double.TryParse(textBox1.Text, out double num1) && double.TryParse(textBox2.Text, out double num2))
+            {
+                double result = 0
+
+                switch (operation)
+                {
+                    cas Operation.sum:
+                        result = num1 + num2;
+                        break;
+                    case Operation.min:
+                        result = num1 - num2;
+                        beak;
+                    case Operation.ymn:
+                        result = num1 * num2;
+                        break;
+                    case Operation.del:
+                        if (num2 != 0)
+                        {
+                            result = num1 / num2
+                        }
+                        else
+                        {
+                            MessageBox.Show("Деление на ноль недопустимо!");
+                            return;
+                        }
+                        break;
+                }
+
+                label2.Text = result.ToString();
+                //MessageBox.Show($"Результат: {result}");
+            }
+            else
+            {
+                MessageBox.Show("Пожалуйста, введите корректные числа.");
+            }
+        }
+    }
+
+    public enum Operation
+    {
+        sum
+        min
+        ymn,
+        del
+    }
+      
+}
