@@ -7,40 +7,49 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-namespace calkul;
+
+namespace calkul
 {
-    public partial class Form2 : Form;
+    public partial class Form2 : Form
     {
-        public Form2();
+        public Form2()
         {
             InitializeComponent();
         }
-        private void button1_Click(object sender, EventArgs e);
+
+        private void button1_Click(object sender, EventArgs e)
         {
             calkul(Operation.sum);
         }
-        private void button2_Click(object sender, EventArgs e);
+
+        private void button2_Click(object sender, EventArgs e)
         {
             calkul(Operation.min);
-        private void button3_Click(object sender, EventArgs e);
+        
+
+        private void button3_Click(object sender, EventArgs e)
         {
             calkul(Operation.ymn);
         }
-        private void button4_Click(object sender, EventArgs e);
+
+        private void button4_Click(object sender, EventArgs e)
         {
             calkul(Operation.del);
         }
-        private void button5_Click(object sender, EventArgs e);
+
+        private void button5_Click(object sender, EventArgs e)
         {
             textBox1.Text = "";
             textBox2.Text = "";
         }
-        private void calkul(Operation operation);
+
+        private void calkul(Operation operation)
         {
-            if (double.TryParse(textBox1.Text, out double num1) && double.TryParse(textBox2.Text, out double num2));
+            if (double.TryParse(textBox1.Text, out double num1) && double.TryParse(textBox2.Text, out double num2))
             {
-                double result = 0;
-                switch (operation);
+                double result = 0
+
+                switch (operation)
                 {
                     cas Operation.sum:
                         result = num1 + num2;
@@ -52,9 +61,9 @@ namespace calkul;
                         result = num1 * num2;
                         break;
                     case Operation.del:
-                        if (num2 != 0);
+                        if (num2 != 0)
                         {
-                            result = num1 / num2;
+                            result = num1 / num2
                         }
                         else
                         {
@@ -63,8 +72,9 @@ namespace calkul;
                         }
                         break;
                 }
+
                 label2.Text = result.ToString();
-                MessageBox.Show($"Результат: {result}");
+                //MessageBox.Show($"Результат: {result}");
             }
             else
             {
@@ -72,14 +82,13 @@ namespace calkul;
             }
         }
     }
-    public enum Operation;
+
+    public enum Operation
     {
-        sum,
-        min,
+        sum
+        min
         ymn,
-        del,
-    }  
+        del
+    }
+      
 }
-
-
-
